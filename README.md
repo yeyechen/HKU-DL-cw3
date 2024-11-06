@@ -75,7 +75,7 @@ Answer: A
 
 ### 3.3 Get Code
 
-The updated codebase structure:
+The codebase structure:
 
 ```
 project/
@@ -102,14 +102,10 @@ python mcqa.py --input_file "data/test.jsonl" --output_file "predictions/test.js
 
 Explanation of parameters:
 
-- **Input File**: The path to the input JSONL file containing the test questions.
-- **Output File**: Where the predictions will be saved in JSONL format.
-- **Model Path**: Specifies the path to the model or the model name in the HuggingFace hub.
-- **Device**: Determines whether the process runs on CUDA or CPU; automatically detected if not specified.
-- **Number of Forward Passes**: Sets the number of times to run forward passes for majority voting.
-- **Minimum Probability Threshold**: The threshold below which predictions are not considered.
-- **Max Length**: The maximum sequence length for model input.
-- **Seed**: Sets the random seed for reproducibility.
+- **input_file**: The path to the input JSONL file containing the test questions.
+- **output_file**: Where the predictions will be saved in JSONL format.
+- **model_path**: Specifies the path to the model or the model name in the HuggingFace hub.
+- **num_forward_passes**: Sets the number of times to run forward passes for majority voting.
 
 ### 3.4 Assignment Tasks
 
