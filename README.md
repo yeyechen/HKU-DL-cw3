@@ -6,7 +6,7 @@ This codebase is only for HKU DASC 7606 (2024-2025) course. Please don't upload 
 ## 1 Introduction
 
 ### 1.1 Large Language Models and Enhanced Reliability
-Large language models, such as GPT-3 and its successors, have revolutionized natural language processing by enabling sophisticated text generation and understanding. A prominent technique used to enhance the reliability of these models is "majority voting." This method aggregates predictions to improve accuracy and robustness in decision-making, capitalizing on the extensive pre-training of these models to produce consistent outputs without additional fine-tuning.
+Large language models, such as GPT-3 and its successors, have revolutionized natural language processing by enabling sophisticated text generation and understanding. A prominent technique used to enhance the reliability of these models is majority voting. This method aggregates predictions to improve accuracy and robustness in decision-making, capitalizing on the extensive pre-training of these models to produce consistent outputs without additional fine-tuning.
 
 ### 1.2 Multi-choice Question Answering
 Multiple-choice question answering is crucial for evaluating the reasoning capabilities of large language models. It involves providing a question with several possible answers, only one of which is correct. This task demonstrates a model's ability to comprehend and apply its pre-trained knowledge to new scenarios, particularly through datasets like the AI2 Reasoning Challenge (ARC), which tests a broad range of reasoning skills.
@@ -104,7 +104,7 @@ Explanation of parameters:
 
 - **input_file**: The path to the input JSONL file containing the test questions.
 - **output_file**: Where the predictions will be saved in JSONL format.
-- **model_path**: Specifies the path to the model or the model name in the HuggingFace hub.
+- **model_path**: Specifies the path to the model.
 - **num_forward_passes**: Sets the number of times to run forward passes for majority voting.
 
 ### 3.4 Assignment Tasks
