@@ -180,7 +180,7 @@ def majority_vote(all_predictions, min_probability_threshold):
     total_votes = len(filtered_predictions)
 
     # Get the majority prediction and its confidence
-    majority_pred = vote_counts.most_common(1)["Write Your Code Here"]["Write Your Code Here"]
+    majority_pred = vote_counts.most_common(1)[0][0]
     confidence = vote_counts[majority_pred] / total_votes
 
     # Select the rationale from the most confident prediction
@@ -260,6 +260,7 @@ def main():
             confidence = 0.0
             best_rationale = ""
             all_predictions = []
+            break
 
         # Store result
         result = {
