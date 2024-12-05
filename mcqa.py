@@ -1,6 +1,6 @@
 import json
 import torch
-from modeling_llama import LlamaForCausalLM
+from modeling_llama import LlamaForCausalLM, LlamaForQuestionAnswering
 from tokenization_llama_fast import LlamaTokenizerFast
 from tqdm import tqdm
 import torch.nn.functional as F
@@ -117,7 +117,7 @@ def get_next_token_probabilities(model, tokenizer, prompt, options, device, max_
             **inputs,
             max_new_tokens=max_new_tokens,
             pad_token_id=tokenizer.eos_token_id,
-            temperature=0.6,
+            temperature=0.6, # TODO - tune temperature
             do_sample=True,
             num_return_sequences=1,
             eos_token_id=tokenizer.eos_token_id,
@@ -222,7 +222,12 @@ def main():
     # Initialize model and tokenizer
     print(f"Loading model...")
     try:
-        model = LlamaForCausalLM.from_pretrained(
+        # model = LlamaForCausalLM.from_pretrained(
+        #     model_path,
+        #     torch_dtype=torch.float16 if args.device == "cuda" else torch.float32,
+        #     device_map="auto"
+        # )
+        model = LlamaForQuestionAnswering.from_pretrained(
             model_path,
             torch_dtype=torch.float16 if args.device == "cuda" else torch.float32,
             device_map="auto"
@@ -260,7 +265,7 @@ def main():
             confidence = 0.0
             best_rationale = ""
             all_predictions = []
-            break
+
 
         # Store result
         result = {
