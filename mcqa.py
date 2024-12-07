@@ -57,12 +57,14 @@ def ensure_model_downloaded(model_path):
     """
     if os.path.exists(model_path):
         return model_path
+    
+    model_name = model_path.split("/")[-1]
 
     try:
-        print(f"Downloading model unsloth/Llama-3.2-1B-Instruct to {model_path}...")
+        print(f"Downloading model unsloth/{model_name} to {model_path}...")
         os.makedirs(os.path.dirname(model_path), exist_ok=True)
         snapshot_download(
-            repo_id="unsloth/Llama-3.2-1B-Instruct",
+            repo_id=f"unsloth/{model_name}",
             local_dir=model_path,
             local_dir_use_symlinks=False
         )
