@@ -222,12 +222,7 @@ def main():
     # Initialize model and tokenizer
     print(f"Loading model...")
     try:
-        # model = LlamaForCausalLM.from_pretrained(
-        #     model_path,
-        #     torch_dtype=torch.float16 if args.device == "cuda" else torch.float32,
-        #     device_map="auto"
-        # )
-        model = LlamaForQuestionAnswering.from_pretrained(
+        model = LlamaForCausalLM.from_pretrained(
             model_path,
             torch_dtype=torch.float16 if args.device == "cuda" else torch.float32,
             device_map="auto"
